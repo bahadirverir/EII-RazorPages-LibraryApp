@@ -1,0 +1,55 @@
+@page
+@model LibraryAutomation.Pages.Books.EditModel
+
+@{
+    ViewData["Title"] = "Düzenle";
+}
+
+<h1>Düzenle</h1>
+
+<h4>Kitap</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Kitap.KitapID" />
+            <div class="form-group">
+                <label asp-for="Kitap.Baslik" class="control-label"></label>
+                <input asp-for="Kitap.Baslik" class="form-control" />
+                <span asp-validation-for="Kitap.Baslik" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Kitap.Yazar" class="control-label"></label>
+                <input asp-for="Kitap.Yazar" class="form-control" />
+                <span asp-validation-for="Kitap.Yazar" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Kitap.YayimYili" class="control-label"></label>
+                <input asp-for="Kitap.YayimYili" class="form-control" />
+                <span asp-validation-for="Kitap.YayimYili" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Kitap.Tur" class="control-label"></label>
+                <input asp-for="Kitap.Tur" class="form-control" />
+                <span asp-validation-for="Kitap.Tur" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Kitap.Aciklama" class="control-label"></label>
+                <input asp-for="Kitap.Aciklama" class="form-control" />
+                <span asp-validation-for="Kitap.Aciklama" class="text-danger"></span>
+            </div>
+            <div class="form-group mt-3">
+                <input type="submit" value="Kaydet" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Listeye Geri Dön</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

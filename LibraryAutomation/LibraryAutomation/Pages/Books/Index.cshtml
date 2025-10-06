@@ -1,0 +1,53 @@
+@page
+@model LibraryAutomation.Pages.Books.IndexModel
+
+@{
+    ViewData["Title"] = "Kitaplar";
+}
+
+<h1>Kitaplar</h1>
+
+<p>
+    <a asp-page="Create">Yeni Kitap Ekle</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Kitap[0].Baslik)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Kitap[0].Yazar)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Kitap[0].YayimYili)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Kitap[0].Tur)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Kitap) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Baslik)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Yazar)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.YayimYili)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Tur)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.KitapID">Düzenle</a> |
+                <a asp-page="./Delete" asp-route-id="@item.KitapID">Sil</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

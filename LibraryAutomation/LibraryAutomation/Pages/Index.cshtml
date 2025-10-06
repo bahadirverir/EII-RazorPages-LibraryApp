@@ -1,0 +1,47 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Ana Sayfa";
+}
+
+<!-- Hero Section -->
+<div class="jumbotron text-center bg-light my-5">
+    <h1 class="display-4">Kütüphane Otomasyonuna Hoş Geldiniz</h1>
+    <p class="lead">Kitaplarınızı kolayca yönetin, ödünç alma işlemlerini takip edin.</p>
+    <hr class="my-4">
+    <p>Hemen başlayın ve kütüphanenizi dijitalleştirin.</p>
+    <a class="btn btn-primary btn-lg" asp-page="/Books/Index" role="button">Kitaplara Gözat</a>
+    @if (User.Identity != null && !User.Identity.IsAuthenticated)
+    {
+        <a class="btn btn-secondary btn-lg" asp-page="/Login" role="button">Giriş Yap</a>
+    }
+</div>
+
+<!-- Features Section -->
+<div class="row text-center">
+    <div class="col-md-4">
+        <div class="card shadow-sm">
+            <div class="card-body">
+                <h5 class="card-title">📚 Kitap Yönetimi</h5>
+                <p class="card-text">Geniş kitap koleksiyonunuzu kolayca listeleyin, yeni kitaplar ekleyin, mevcutları güncelleyin veya silin.</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card shadow-sm">
+            <div class="card-body">
+                <h5 class="card-title">👤 Kullanıcı Takibi</h5>
+                <p class="card-text">Admin ve standart kullanıcı rolleri ile güvenli bir erişim kontrolü sağlayın. Kimin ne zaman giriş yaptığını bilin.</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card shadow-sm">
+            <div class="card-body">
+                <h5 class="card-title">🔄 Ödünç Alma İşlemleri</h5>
+                <p class="card-text">Hangi kitabın kim tarafından ne zaman alındığını ve ne zaman iade edildiğini kolayca takip edin.</p>
+            </div>
+        </div>
+    </div>
+</div>
+

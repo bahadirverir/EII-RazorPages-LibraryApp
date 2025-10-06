@@ -1,0 +1,52 @@
+@page
+@model LibraryAutomation.Pages.RegisterModel
+@{
+    ViewData["Title"] = "Kayıt Ol";
+}
+
+<div class="row justify-content-center">
+    <div class="col-md-6">
+        <div class="card shadow-sm">
+            <div class="card-header bg-primary text-white text-center">
+                <h1>@ViewData["Title"]</h1>
+            </div>
+            <div class="card-body">
+                <form asp-route-returnUrl="@Model.ReturnUrl" method="post">
+                    <p class="text-center">Yeni bir hesap oluşturun.</p>
+                    <hr />
+                    <div asp-validation-summary="ModelOnly" class="text-danger" role="alert"></div>
+                    <div class="form-floating mb-3">
+                        <input asp-for="Input.KullaniciAdi" class="form-control" autocomplete="username" aria-required="true" placeholder="Kullanıcı Adı" />
+                        <label asp-for="Input.KullaniciAdi" class="form-label">Kullanıcı Adı</label>
+                        <span asp-validation-for="Input.KullaniciAdi" class="text-danger"></span>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <input asp-for="Input.Email" class="form-control" autocomplete="email" aria-required="true" placeholder="E-posta" />
+                        <label asp-for="Input.Email" class="form-label">E-posta</label>
+                        <span asp-validation-for="Input.Email" class="text-danger"></span>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <input asp-for="Input.Sifre" class="form-control" type="password" autocomplete="new-password" aria-required="true" placeholder="Şifre" />
+                        <label asp-for="Input.Sifre" class="form-label">Şifre</label>
+                        <span asp-validation-for="Input.Sifre" class="text-danger"></span>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <input asp-for="Input.ConfirmSifre" class="form-control" type="password" autocomplete="new-password" aria-required="true" placeholder="Şifreyi Onayla" />
+                        <label asp-for="Input.ConfirmSifre" class="form-label">Şifreyi Onayla</label>
+                        <span asp-validation-for="Input.ConfirmSifre" class="text-danger"></span>
+                    </div>
+                    <div class="mt-4">
+                        <button id="registerSubmit" type="submit" class="w-100 btn btn-lg btn-primary">Kayıt Ol</button>
+                    </div>
+                     <div class="mt-3 text-center">
+                        <p>Zaten bir hesabınız var mı? <a asp-page="/Login">Giriş Yapın</a></p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

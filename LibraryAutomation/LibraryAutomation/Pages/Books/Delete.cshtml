@@ -1,0 +1,46 @@
+@page
+@model LibraryAutomation.Pages.Books.DeleteModel
+
+@{
+    ViewData["Title"] = "Kitap Sil";
+}
+
+<h1>Kitap Sil</h1>
+
+<h3>Bu kaydı silmek istediğinizden emin misiniz?</h3>
+<div>
+    <h4>Kitap</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Kitap.Baslik)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Kitap.Baslik)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Kitap.Yazar)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Kitap.Yazar)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Kitap.YayimYili)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Kitap.YayimYili)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Kitap.Tur)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Kitap.Tur)
+        </dd>
+    </dl>
+    
+    <form method="post">
+        <input type="hidden" asp-for="Kitap.KitapID" />
+        <input type="submit" value="Sil" class="btn btn-danger" /> |
+        <a asp-page="./Index">Listeye Geri Dön</a>
+    </form>
+</div>

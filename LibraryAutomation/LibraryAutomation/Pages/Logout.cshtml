@@ -1,0 +1,34 @@
+@page
+@using Microsoft.AspNetCore.Authentication
+@model LibraryAutomation.Pages.LogoutModel
+@{
+    ViewData["Title"] = "Çıkış Yap";
+}
+
+<div class="row justify-content-center">
+    <div class="col-md-6">
+        <div class="card shadow-sm">
+            <div class="card-header bg-primary text-white text-center">
+                <h1>@ViewData["Title"]</h1>
+            </div>
+            <div class="card-body text-center">
+                @{
+                    if (User.Identity.IsAuthenticated)
+                    {
+                        <p>Oturumu sonlandırmak istediğinizden emin misiniz?</p>
+                        <form class="form-inline justify-content-center" asp-page="/Logout" asp-route-returnUrl="@Url.Page("/", new { area = "" })" method="post">
+                            <button type="submit" class="btn btn-danger">Evet, Çıkış Yap</button>
+                        </form>
+                    }
+                    else
+                    {
+                        <p class="lead">Başarıyla çıkış yaptınız.</p>
+                        <p>Tekrar görüşmek üzere!</p>
+                        <a asp-page="/Index" class="btn btn-primary">Ana Sayfaya Dön</a>
+                    }
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
